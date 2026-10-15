@@ -1,0 +1,151 @@
+:root {
+  --paper: #fbf5f2;
+  --paper-deep: #f4e5e2;
+  --ink: #352b35;
+  --muted: #897c86;
+  --rose: #d66d78;
+  --rose-deep: #b94f67;
+  --plum: #6e405a;
+  --line: rgba(110, 64, 90, 0.13);
+  --white: rgba(255, 255, 255, 0.74);
+  --shadow: 0 24px 70px rgba(107, 60, 82, 0.12);
+  font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(236, 180, 177, 0.33), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(207, 175, 191, 0.28), transparent 26%),
+    linear-gradient(145deg, #fffaf7 0%, var(--paper) 54%, #f8eeeb 100%);
+}
+button { font: inherit; }
+button:focus-visible { outline: 3px solid rgba(214, 109, 120, .45); outline-offset: 3px; }
+
+.app-shell { width: min(100%, 720px); margin: 0 auto; padding: 22px 18px 48px; }
+.screen { min-height: calc(100vh - 70px); display: flex; flex-direction: column; justify-content: center; }
+.eyebrow { margin: 0 0 12px; color: var(--rose-deep); font: 700 12px/1.4 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; letter-spacing: .22em; text-transform: uppercase; }
+.serif-title { margin: 0; font-size: clamp(36px, 9vw, 64px); line-height: 1.13; letter-spacing: -.08em; font-weight: 900; }
+.subtitle { margin: 20px 0 0; color: var(--muted); font-size: 16px; line-height: 1.85; }
+.hero { position: relative; padding: 36px 8px 20px; }
+.hero::before { content: "“"; position: absolute; z-index: -1; top: -30px; left: -10px; color: rgba(214, 109, 120, .16); font: 900 220px/1 Georgia, serif; }
+.hero-ornament { width: 84px; height: 1px; margin: 26px 0; background: var(--rose); position: relative; }
+.hero-ornament::after { content: "✦"; position: absolute; left: 92px; top: -11px; color: var(--rose); font-size: 19px; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 32px; }
+.pill { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.42); color: var(--plum); font: 600 12px/1.2 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+.cta { width: 100%; border: 0; border-radius: 18px; padding: 17px 20px; color: #fff; background: linear-gradient(125deg, var(--rose) 0%, var(--rose-deep) 100%); box-shadow: 0 14px 28px rgba(185,79,103,.23); cursor: pointer; font: 700 16px/1.2 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; transition: transform .2s ease, box-shadow .2s ease; }
+.cta:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(185,79,103,.30); }
+.cta:active { transform: translateY(0); }
+.legal { margin: 15px 0 0; text-align: center; color: #a7969f; font: 11px/1.6 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+
+.panel { border: 1px solid var(--line); border-radius: 28px; background: var(--white); box-shadow: var(--shadow); backdrop-filter: blur(12px); }
+.payment-panel { padding: 28px 22px 22px; }
+.payment-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.payment-head h2 { margin: 0; font-size: 25px; letter-spacing: -.04em; }
+.price { color: var(--rose-deep); font: 800 28px/1 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; white-space: nowrap; }
+.bullet-list { margin: 24px 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; line-height: 2; }
+.bullet-list li::before { content: "✦"; margin-right: 9px; color: var(--rose); }
+.text-button { border: 0; background: transparent; color: var(--muted); cursor: pointer; font: 13px/1.5 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+
+.redeem-field { margin: 4px 0 18px; }
+.redeem-input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255,255,255,.6);
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: .18em;
+  font: 700 18px/1.3 "SF Mono", ui-monospace, "PingFang SC", monospace;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.redeem-input::placeholder { color: #b6a6b0; letter-spacing: .08em; font-weight: 500; }
+.redeem-input:focus { border-color: rgba(214,109,120,.55); box-shadow: 0 0 0 3px rgba(214,109,120,.14); }
+.redeem-input-error { border-color: rgba(185,79,103,.65); background: #fdf3f2; }
+.redeem-error { margin: 9px 0 0; text-align: center; color: var(--rose-deep); font: 600 13px/1.5 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+
+.result-loading-card { padding: 46px 26px; text-align: center; }
+.result-loading-card h2 { margin: 0 0 10px; color: var(--plum); font-size: 22px; letter-spacing: -.03em; }
+.result-loading-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.loading-stars { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; color: var(--rose); }
+.loading-stars span { display: inline-block; font-size: 20px; animation: star-blink 1.1s ease-in-out infinite; }
+.loading-stars span:nth-child(2) { animation-delay: .18s; }
+.loading-stars span:nth-child(3) { animation-delay: .36s; }
+@keyframes star-blink {
+  0%, 100% { opacity: .25; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-4px); }
+}
+
+.quiz-header { margin-bottom: 24px; }
+.quiz-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; color: var(--muted); font: 600 12px/1.3 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+.progress-track { height: 6px; border-radius: 99px; background: rgba(110,64,90,.09); overflow: hidden; }
+.progress-value { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--rose), var(--plum)); transition: width .35s ease; }
+.question-card { padding: 24px 20px 20px; }
+.question-card h1 { margin: 0 0 22px; font-size: clamp(25px, 6vw, 34px); line-height: 1.38; letter-spacing: -.055em; }
+.option-list { display: grid; gap: 12px; }
+.option { display: flex; align-items: flex-start; gap: 12px; width: 100%; padding: 15px 14px; text-align: left; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.5); color: var(--ink); cursor: pointer; transition: all .2s ease; }
+.option:hover { border-color: rgba(214,109,120,.52); background: #fff8f5; transform: translateY(-1px); }
+.option-index { flex: 0 0 auto; display: grid; place-items: center; width: 25px; height: 25px; border-radius: 50%; color: var(--rose-deep); background: #f6dfe0; font: 700 12px/1 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+.option-label { font-size: 15px; line-height: 1.65; }
+.quiz-footnote { margin: 18px 0 0; color: #a18e98; text-align: center; font: 12px/1.6 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+
+.result-screen { padding-top: 18px; }
+.result-card { position: relative; overflow: hidden; padding: 34px 24px 28px; background: linear-gradient(160deg, #fffaf8 0%, #f8e9e6 100%); }
+.result-card::after { content: "✦"; position: absolute; right: 20px; top: 13px; color: rgba(185,79,103,.45); font-size: 42px; }
+.result-card .result-label { margin-bottom: 16px; }
+.result-name { margin: 0; color: var(--plum); font-size: clamp(40px, 10vw, 66px); line-height: 1.05; letter-spacing: -.1em; }
+.result-tagline { margin: 13px 0 0; color: var(--rose-deep); font-size: 17px; line-height: 1.6; }
+.result-divider { width: 100%; height: 1px; margin: 25px 0; background: rgba(110,64,90,.14); }
+.result-copy { margin: 0; color: #5e4d59; font-size: 16px; line-height: 2; }
+.result-sections { display: grid; gap: 12px; margin-top: 16px; }
+.mini-section { padding: 15px 16px; border-radius: 16px; background: rgba(255,255,255,.57); }
+.mini-section h3 { margin: 0 0 7px; color: var(--rose-deep); font: 700 12px/1.4 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; letter-spacing: .1em; }
+.mini-section p { margin: 0; color: #64535e; font-size: 14px; line-height: 1.75; }
+.share-quote { margin: 18px 0 0; padding: 16px; border-left: 3px solid var(--rose); background: rgba(255,255,255,.48); color: var(--plum); font-size: 15px; line-height: 1.8; }
+.result-actions { display: grid; gap: 10px; margin-top: 18px; }
+.secondary { width: 100%; padding: 14px 18px; border: 1px solid rgba(185,79,103,.28); border-radius: 15px; color: var(--rose-deep); background: rgba(255,255,255,.44); cursor: pointer; font: 700 14px/1.3 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+.secondary:hover { background: #fff8f5; }
+
+.toast { position: fixed; z-index: 20; left: 50%; bottom: 28px; transform: translate(-50%, 20px); max-width: calc(100% - 36px); padding: 11px 15px; border-radius: 999px; color: #fff; background: rgba(53,43,53,.9); opacity: 0; pointer-events: none; transition: all .25s ease; font: 13px/1.3 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (min-width: 640px) {
+  .app-shell { padding-top: 42px; }
+  .hero { padding-left: 26px; padding-right: 26px; }
+  .payment-panel, .question-card, .result-card { padding-left: 34px; padding-right: 34px; }
+}
+
+.option.selected {
+  border-color: rgba(185, 79, 103, .62);
+  background: linear-gradient(135deg, #fff8f5 0%, #f7e3e3 100%);
+  box-shadow: 0 8px 18px rgba(185, 79, 103, .10);
+}
+.option.selected .option-index {
+  color: #fff;
+  background: var(--rose-deep);
+}
+.quiz-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.previous-button {
+  width: auto;
+  min-width: 90px;
+  padding: 11px 15px;
+}
+.previous-button:disabled {
+  opacity: .38;
+  cursor: not-allowed;
+}
+.quiz-hint {
+  color: #a18e98;
+  font: 12px/1.5 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+}
